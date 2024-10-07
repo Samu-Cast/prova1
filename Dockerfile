@@ -1,6 +1,6 @@
 # Start your image with a node base image
 FROM node:18-alpine
-docker build -t welcome-to-docker .
+
 # The /app directory should act as the main application directory
 WORKDIR /app
 
@@ -10,7 +10,7 @@ COPY package*.json ./
 # Copy local directories to the current local directory of our docker image (/app)
 COPY ./src ./src
 COPY ./public ./public
-
+docker build -t welcome-to-docker .
 # Install node packages, install serve, build the app, and remove dependencies at the end
 RUN npm install \
     && npm install -g serve \
